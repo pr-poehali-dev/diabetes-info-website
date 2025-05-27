@@ -155,283 +155,113 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Glucose Monitoring */}
+      {/* Symptoms */}
       <section className="py-16 px-4 max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
-          Контроль уровня глюкозы
+          Основные симптомы
         </h2>
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center text-blue-600">
-                <Icon name="Activity" className="mr-2" />
-                Глюкометры
-              </CardTitle>
-              <CardDescription>Устройства для измерения сахара</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <img
-                src="https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                alt="Глюкометр"
-                className="w-full h-48 object-cover rounded-lg mb-4"
-              />
-              <ul className="space-y-2 text-sm text-gray-700">
-                <li>• Измеряйте сахар натощак (норма 4-6 ммоль/л)</li>
-                <li>• После еды через 2 часа (до 10 ммоль/л)</li>
-                <li>• Ведите дневник измерений</li>
-                <li>• Меняйте тест-полоски вовремя</li>
-              </ul>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center text-green-600">
-                <Icon name="Target" className="mr-2" />
-                Целевые показатели
-              </CardTitle>
-              <CardDescription>К чему стремиться</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <img
-                src="https://images.unsplash.com/photo-1584362917165-526a968579e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                alt="Анализы крови"
-                className="w-full h-48 object-cover rounded-lg mb-4"
-              />
-              <div className="space-y-3">
-                <div className="bg-green-50 p-3 rounded">
-                  <strong className="text-green-700">HbA1c:</strong> менее 7%
-                  (53 ммоль/моль)
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            {
+              icon: "Droplets",
+              title: "Жажда",
+              desc: "Постоянная сухость во рту",
+              color: "blue",
+            },
+            {
+              icon: "Zap",
+              title: "Усталость",
+              desc: "Постоянная слабость",
+              color: "yellow",
+            },
+            {
+              icon: "Eye",
+              title: "Зрение",
+              desc: "Нечеткость зрения",
+              color: "green",
+            },
+            {
+              icon: "TrendingDown",
+              title: "Вес",
+              desc: "Необъяснимая потеря веса",
+              color: "red",
+            },
+          ].map((symptom, index) => (
+            <Card
+              key={index}
+              className="text-center hover:shadow-md transition-shadow"
+            >
+              <CardContent className="p-6">
+                <div
+                  className={`w-16 h-16 mx-auto mb-4 rounded-full bg-${symptom.color}-100 flex items-center justify-center`}
+                >
+                  <Icon
+                    name={symptom.icon as any}
+                    className={`text-${symptom.color}-600`}
+                    size={32}
+                  />
                 </div>
-                <div className="bg-blue-50 p-3 rounded">
-                  <strong className="text-blue-700">Натощак:</strong> 4-7
-                  ммоль/л
-                </div>
-                <div className="bg-orange-50 p-3 rounded">
-                  <strong className="text-orange-700">После еды:</strong> менее
-                  10 ммоль/л
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+                <h3 className="font-semibold mb-2 text-gray-800">
+                  {symptom.title}
+                </h3>
+                <p className="text-sm text-gray-600">{symptom.desc}</p>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </section>
 
-      {/* Nutrition for Diabetics */}
-      <section className="py-16 px-4 bg-gradient-to-br from-green-50 to-blue-50">
+      {/* Treatment & Lifestyle */}
+      <section className="py-16 px-4 bg-gradient-to-r from-green-50 to-blue-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
-            Питание при диабете
+            Лечение и образ жизни
           </h2>
-
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <Card className="bg-green-100 border-green-200">
+          <div className="grid md:grid-cols-2 gap-8">
+            <Card>
               <CardHeader>
-                <CardTitle className="text-green-700 flex items-center">
-                  <Icon name="CheckCircle" className="mr-2" />
-                  Рекомендуется
+                <CardTitle className="flex items-center text-green-600">
+                  <Icon name="Pill" className="mr-2" />
+                  Медикаментозное лечение
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <img
-                  src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-                  alt="Здоровые продукты"
-                  className="w-full h-32 object-cover rounded-lg mb-4"
+                  src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                  alt="Лекарства"
+                  className="w-full h-48 object-cover rounded-lg mb-4"
                 />
-                <ul className="space-y-1 text-sm text-green-700">
-                  <li>• Овощи (кроме картофеля)</li>
-                  <li>• Нежирное мясо и рыба</li>
-                  <li>• Цельнозерновые крупы</li>
-                  <li>• Бобовые</li>
-                  <li>• Орехи в умеренных количествах</li>
-                  <li>• Молочные продукты низкой жирности</li>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Инсулинотерапия при необходимости</li>
+                  <li>• Пероральные сахароснижающие препараты</li>
+                  <li>• Регулярный контроль уровня сахара</li>
+                  <li>• Консультации с эндокринологом</li>
                 </ul>
               </CardContent>
             </Card>
 
-            <Card className="bg-yellow-100 border-yellow-200">
+            <Card>
               <CardHeader>
-                <CardTitle className="text-yellow-700 flex items-center">
-                  <Icon name="AlertTriangle" className="mr-2" />
-                  Ограничить
+                <CardTitle className="flex items-center text-blue-600">
+                  <Icon name="Apple" className="mr-2" />
+                  Питание и активность
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <img
-                  src="https://images.unsplash.com/photo-1587736777555-cc71d5a4cd7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-                  alt="Продукты с ограничением"
-                  className="w-full h-32 object-cover rounded-lg mb-4"
+                  src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                  alt="Здоровая еда"
+                  className="w-full h-48 object-cover rounded-lg mb-4"
                 />
-                <ul className="space-y-1 text-sm text-yellow-700">
-                  <li>• Фрукты (не более 2-3 в день)</li>
-                  <li>• Картофель, рис, макароны</li>
-                  <li>• Хлеб (лучше цельнозерновой)</li>
-                  <li>• Мёд (1-2 ч.л. в день)</li>
-                  <li>• Сухофрукты</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-red-100 border-red-200">
-              <CardHeader>
-                <CardTitle className="text-red-700 flex items-center">
-                  <Icon name="X" className="mr-2" />
-                  Исключить
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <img
-                  src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-                  alt="Вредные продукты"
-                  className="w-full h-32 object-cover rounded-lg mb-4"
-                />
-                <ul className="space-y-1 text-sm text-red-700">
-                  <li>• Сахар, конфеты</li>
-                  <li>• Сладкие напитки</li>
-                  <li>• Пирожные, торты</li>
-                  <li>• Жареная пища</li>
-                  <li>• Алкоголь</li>
-                  <li>• Полуфабрикаты</li>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Сбалансированное питание</li>
+                  <li>• Контроль углеводов</li>
+                  <li>• Регулярная физическая активность</li>
+                  <li>• Поддержание здорового веса</li>
                 </ul>
               </CardContent>
             </Card>
           </div>
-
-          <Card className="mb-8">
-            <CardHeader>
-              <CardTitle className="text-center text-purple-600">
-                Гликемический индекс продуктов
-              </CardTitle>
-              <CardDescription className="text-center">
-                Влияние продуктов на уровень сахара в крови
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="bg-green-50 p-4 rounded-lg">
-                  <h4 className="font-semibold text-green-700 mb-2">
-                    Низкий ГИ (до 55)
-                  </h4>
-                  <p className="text-sm text-green-600">
-                    Овощи, бобовые, молочные продукты, орехи
-                  </p>
-                </div>
-                <div className="bg-yellow-50 p-4 rounded-lg">
-                  <h4 className="font-semibold text-yellow-700 mb-2">
-                    Средний ГИ (55-70)
-                  </h4>
-                  <p className="text-sm text-yellow-600">
-                    Фрукты, овсянка, коричневый рис
-                  </p>
-                </div>
-                <div className="bg-red-50 p-4 rounded-lg">
-                  <h4 className="font-semibold text-red-700 mb-2">
-                    Высокий ГИ (свыше 70)
-                  </h4>
-                  <p className="text-sm text-red-600">
-                    Сахар, белый хлеб, картофель
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      {/* Physical Activity & Lifestyle */}
-      <section className="py-16 px-4 max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
-          Образ жизни и активность
-        </h2>
-        <div className="grid md:grid-cols-2 gap-8 mb-8">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center text-blue-600">
-                <Icon name="Dumbbell" className="mr-2" />
-                Физическая активность
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <img
-                src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                alt="Физические упражнения"
-                className="w-full h-48 object-cover rounded-lg mb-4"
-              />
-              <ul className="space-y-2 text-gray-700">
-                <li>• 150 минут умеренной активности в неделю</li>
-                <li>• Ходьба по 30 минут в день</li>
-                <li>• Плавание, йога, велоспорт</li>
-                <li>• Проверяйте сахар до и после тренировок</li>
-              </ul>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center text-purple-600">
-                <Icon name="Moon" className="mr-2" />
-                Сон и стресс
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <img
-                src="https://images.unsplash.com/photo-1511295742362-92c96b1cf09b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                alt="Здоровый сон"
-                className="w-full h-48 object-cover rounded-lg mb-4"
-              />
-              <ul className="space-y-2 text-gray-700">
-                <li>• Спите 7-9 часов в сутки</li>
-                <li>• Управляйте стрессом</li>
-                <li>• Практикуйте медитацию</li>
-                <li>• Регулярный режим дня</li>
-              </ul>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      {/* Emergency Signs */}
-      <section className="py-16 px-4 bg-red-50">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-red-700 mb-8">
-            ⚠️ Опасные симптомы
-          </h2>
-          <Card className="border-red-200">
-            <CardContent className="p-8">
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-xl font-semibold text-red-600 mb-4">
-                    Гипогликемия (низкий сахар)
-                  </h3>
-                  <ul className="text-left space-y-2 text-gray-700">
-                    <li>• Дрожь, потливость</li>
-                    <li>• Головокружение</li>
-                    <li>• Чувство голода</li>
-                    <li>• Раздражительность</li>
-                  </ul>
-                  <div className="mt-4 p-3 bg-green-100 rounded">
-                    <strong className="text-green-700">Действие:</strong> съесть
-                    что-то сладкое
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-red-600 mb-4">
-                    Гипергликемия (высокий сахар)
-                  </h3>
-                  <ul className="text-left space-y-2 text-gray-700">
-                    <li>• Сильная жажда</li>
-                    <li>• Частое мочеиспускание</li>
-                    <li>• Тошнота, рвота</li>
-                    <li>• Запах ацетона изо рта</li>
-                  </ul>
-                  <div className="mt-4 p-3 bg-red-100 rounded">
-                    <strong className="text-red-700">Действие:</strong> срочно к
-                    врачу!
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
         </div>
       </section>
 

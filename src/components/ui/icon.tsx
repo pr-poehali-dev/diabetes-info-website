@@ -10,13 +10,6 @@ import {
   Apple,
   Phone,
   CircleAlert,
-  Activity,
-  Target,
-  CheckCircle,
-  AlertTriangle,
-  X,
-  Dumbbell,
-  Moon,
 } from "lucide-react";
 
 const iconMap = {
@@ -30,13 +23,6 @@ const iconMap = {
   Apple,
   Phone,
   CircleAlert,
-  Activity,
-  Target,
-  CheckCircle,
-  AlertTriangle,
-  X,
-  Dumbbell,
-  Moon,
 };
 
 interface IconProps extends LucideProps {
